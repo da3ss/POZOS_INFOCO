@@ -1,0 +1,40 @@
+<!-- templates/profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="color:#696969; font-size: 40px">BMI Calculator</h1>
+
+<body>
+<br><br><br>
+<div class="l">
+	<form class="pure-form" method="POST" action="/bmi-calculator">
+	<h2 style="color:#696969">Weight in kgs:</h2><br>
+	<input type="text" name="weight"><br><br>
+	<h3 style="color:#696969">Height in cms:</h3><br>
+	<input type="text" name="height"><br><br>
+	<button type="submit" class="pure-button pure-button-primary" value="Submit">Submit</button>
+	</form>
+</div>
+
+<br>
+
+<div class="l">
+	{% if bmi!='' %}
+	    <p style="color:#696969; font-size: 30px" >
+        {% print("Your BMI is {}.".format(bmi)) %}
+        </p>
+	{% endif %}
+	{% if state!='' %}
+	    <p style="color:#696969; font-size: 30px">
+        {% print("Your State is: {}.".format(state)) %}
+        </p>
+	{% endif %}
+	{% if bmi==None %}
+	    <p style="color:#FF0000; font-size: 30px" >
+        {% print("ERROR: Weight and Height must be strictly positive numbers!!") %}
+        </p>
+	{% endif %}
+</div>
+
+{% endblock %}
