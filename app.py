@@ -2,6 +2,7 @@ from flask import Flask, render_template,request,Blueprint
 from flask_login import login_required, current_user
 from .models import History
 from . import db
+import os
 app = Flask(__name__)
 main =  Blueprint('main', __name__)
 @main.route('/')
@@ -71,5 +72,5 @@ def history():
 		values.append(record.bmi)
 	return render_template('history.html', values=values, labels=labels, name=current_user.name)
 
-if __name__ == '__main__':
-	app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")

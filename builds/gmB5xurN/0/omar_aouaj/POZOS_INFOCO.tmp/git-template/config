@@ -1,0 +1,4 @@
+[fetch]
+	recurseSubmodules = false
+[http "https://gitlab.com"]
+	sslCAInfo = /home/omar/Desktop/POZOS_INFOCO/builds/gmB5xurN/0/omar_aouaj/POZOS_INFOCO.tmp/CI_SERVER_TLS_CA_FILE

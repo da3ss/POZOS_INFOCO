@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pozos
+spec:
+  selector:
+    app: pozos
+  ports:
+  - port: 5000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pozos
+  name: pozos
+spec:
+  selector:
+    matchLabels:
+      app: pozos
+  strategy: {}
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: pozos
+    spec:
+      containers:
+      - name: pozos
+        image: da3ss/pozos
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+        - containerPort: 5000
